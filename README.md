@@ -4,7 +4,7 @@
 
 <div align="center">
 
-[![Email](https://img.shields.io/badge/email-ai%40liberate--labs.com-22D3EE?style=for-the-badge&logo=maildotru&logoColor=white&labelColor=0E1428)](mailto:ai@liberate-labs.com)
+[![Email](https://img.shields.io/badge/hamim%40liberate--labs.com-22D3EE?style=for-the-badge&logo=maildotru&logoColor=white&labelColor=0E1428)](mailto:hamim@liberate-labs.com)
 [![Repos](https://img.shields.io/badge/what_i_ship-below-A78BFA?style=for-the-badge&logo=github&logoColor=white&labelColor=0E1428)](#selected-work)
 
 </div>
