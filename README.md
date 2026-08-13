@@ -49,7 +49,7 @@ observed and what happens on the retry.
 | **[standup-sync](https://github.com/hamim-liberate-labs/standup-sync)** | A Claude Code plugin that drafts your standup, asks where it goes and posts to ClickUp and Slack as you, not as a bot. Zero runtime dependencies, tested, CI green | `Python` `Claude Code` `Slack API` `ClickUp API` |
 | **[assemblyai_exploration](https://github.com/hamim-liberate-labs/assemblyai_exploration)** | Speech-to-text benchmark across five providers in English, Arabic and Bangla, scored on WER and CER rather than vibes | `AssemblyAI` `Groq` `Deepgram` `jiwer` |
 | **[browser_agent_experiment](https://github.com/hamim-liberate-labs/browser_agent_experiment)** | A conversational course-discovery agent that drives a real browser, with intent routing and a scraper behind it | `LangGraph` `Playwright` `Groq` |
-| **[Liberate-Labs-Assignments](https://github.com/hamim-liberate-labs/Liberate-Labs-Assignments)** | Agent engineering coursework: a customer support graph, an essay writer, computer use and a retrieval Q&A bot | `LangGraph` `LangChain` |
+| **[Liberate-Labs-Assignments](https://github.com/hamim-liberate-labs/Liberate-Labs-Assignments)** | Agent engineering fundamentals: an essay writer with a critique loop, a multilingual support graph, a tool-using search bot and computer use | `LangGraph` `LangChain` |
 
 <img src="assets/divider.svg" width="100%" alt="">
 
