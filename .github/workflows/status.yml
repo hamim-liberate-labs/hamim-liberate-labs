@@ -1,0 +1,60 @@
+name: status
+
+# Keeps assets/status.svg showing the real state of the featured project.
+# The default GITHUB_TOKEN can read public repository data, so this needs no
+# secret configured.
+
+on:
+  schedule:
+    # 06:15 UTC daily. Off the hour on purpose: GitHub drops scheduled runs at
+    # peak times, and the top of the hour is the worst of them.
+    - cron: "15 6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - tools/gen_status.py
+      - .github/workflows/status.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: status
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Regenerate the status strip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 tools/gen_status.py
+
+      - name: Fail if the API gave us nothing usable
+        run: |
+          # A network flake makes the generator warn and carry on, which would
+          # otherwise quietly commit a strip with the interesting parts missing.
+          grep -q 'standup-sync' assets/status.svg || {
+            echo "status.svg has no project name, refusing to commit it"
+            exit 1
+          }
+
+      - name: Commit if it changed
+        run: |
+          if git diff --quiet -- assets/status.svg; then
+            echo "no change"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/status.svg
+          git commit -m "Refresh the project status strip"
+          git push

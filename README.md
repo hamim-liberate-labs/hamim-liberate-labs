@@ -44,6 +44,10 @@ observed and what happens on the retry.
 
 ## Selected work
 
+<div align="center">
+  <img src="assets/status.svg" alt="Featured project status" width="900">
+</div>
+
 ### [standup-sync](https://github.com/hamim-liberate-labs/standup-sync)
 
 A [Claude Code](https://claude.com/claude-code) plugin for the daily async standup. It
